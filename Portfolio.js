@@ -1,3 +1,5 @@
+'use strict'
+
 const subtractDatesInDays = require('./subtractDatesInDays')
 
 class Portfolio {
@@ -42,5 +44,6 @@ class Portfolio {
       return value + investmentValue
     }, 0);
   }
-
 }
+
+module.exports = Portfolio

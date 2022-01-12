@@ -1,6 +1,9 @@
+'use strict'
+
 class Stock {
   #code
   #prices
+
   constructor(code, prices) {
     this.#code = code
     this.#prices = prices
@@ -11,7 +14,9 @@ class Stock {
   }
 
   price(date) {
-    const askedPrice = this.#prices.filter(price => price.date = date)
+    const askedPrice = this.#prices.filter(price => price.date === date)
     return askedPrice
   }
 }
+
+module.exports = Stock
