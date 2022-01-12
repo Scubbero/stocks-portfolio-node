@@ -1,7 +1,8 @@
 const subtractDatesInDays = require('./subtractDatesInDays')
 
 class Portfolio {
-  // An investment is an array of shares(value) for different stocks(key)
+  // An investment is an array that contains a stock and a number of shares for that stock
+  // The array is filled with the following structure { stock, shares }
   #stockInvestments
 
   constructor() {
@@ -30,6 +31,7 @@ class Portfolio {
     return annualizedReturn
   }
 
+  // sum of the portfolio closing prices for the day
   value(date) {
     this.$stockInvestments.reduce((value, investment) => {
       const { stock, shares } = investment
