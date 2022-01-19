@@ -24,10 +24,10 @@ class Portfolio {
   }
 
   annualizedReturn(fromDate, toDate) {
-    const startingValue = value(fromDate)
-    const endingValue = value(toDate)
+    const startingValue = this.value(fromDate)
+    const endingValue = this.value(toDate)
 
-    const daysBetween = subtractDatesInDays(new Date(toDate) - new Date(fromDate))
+    const daysBetween = subtractDatesInDays(new Date(toDate), new Date(fromDate))
     const annualizedReturn = (endingValue / startingValue) ** (365 / daysBetween) - 1
 
     return annualizedReturn
@@ -35,7 +35,7 @@ class Portfolio {
 
   // sum of the portfolio closing prices for the day
   value(date) {
-    this.$stockInvestments.reduce((value, investment) => {
+    return this.#stockInvestments.reduce((value, investment) => {
       const { stock, shares } = investment
 
       const stockPrice = stock.price(date)

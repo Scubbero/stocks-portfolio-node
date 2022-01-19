@@ -14,7 +14,13 @@ class Stock {
   }
 
   price(date) {
-    const askedPrice = this.#prices.filter(price => price.date === date)
+    const priceData = this.#prices[date]
+
+    if (priceData === undefined) {
+      throw `There is no data for the date: ${date}`;
+    }
+
+    const askedPrice = parseFloat(priceData['4. close'])
     return askedPrice
   }
 }
