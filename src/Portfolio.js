@@ -1,10 +1,9 @@
 'use strict'
 
 const subtractDatesInDays = require('./subtractDatesInDays')
-
 class Portfolio {
   // An investment is an array that contains a stock and a number of shares for that stock
-  // The array is filled with the following structure { stock, shares }
+  // The array is filled with the following object { stock, shares }
   #stockInvestments
 
   constructor() {
@@ -23,12 +22,13 @@ class Portfolio {
     return profit
   }
 
+  // About annualized return https://www.indeed.com/career-advice/career-development/how-to-calculate-annualized-return
   annualizedReturn(fromDate, toDate) {
     const startingValue = this.value(fromDate)
     const endingValue = this.value(toDate)
 
-    const daysBetween = subtractDatesInDays(new Date(toDate), new Date(fromDate))
-    const annualizedReturn = (endingValue / startingValue) ** (365 / daysBetween) - 1
+    const daysBetween = subtractDatesInDays(new Date(fromDate), new Date(toDate))
+    const annualizedReturn = (1 + (endingValue - startingValue) / startingValue) ** (365 / daysBetween) - 1
 
     return annualizedReturn
   }

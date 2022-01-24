@@ -4,6 +4,7 @@ class Stock {
   #code
   #prices
 
+  // prices have the form #prices[date] = price
   constructor(code, prices) {
     this.#code = code
     this.#prices = prices
@@ -14,13 +15,12 @@ class Stock {
   }
 
   price(date) {
-    const priceData = this.#prices[date]
+    const askedPrice = this.#prices[date]
 
-    if (priceData === undefined) {
+    if (askedPrice === undefined) {
       throw `There is no data for the date: ${date}`;
     }
 
-    const askedPrice = parseFloat(priceData['4. close'])
     return askedPrice
   }
 }

@@ -1,5 +1,9 @@
 developed on node v16.13.0
 
+# To test
+Run `npm install`
+Run `npm test`
+
 # Requirements
 Construct a simple Portfolio class that has a collection of Stocks and a "Profit" method that receives 2 dates and returns the profit of the Portfolio between those dates. Assume each Stock has a "Price" method that receives a date and returns its price.
 
@@ -12,4 +16,4 @@ https://analyzingalpha.com/open-high-low-close-stocks
 
 
 About anunalized return
-https://www.investopedia.com/terms/a/annualized-total-return.asp
+https://www.indeed.com/career-advice/career-development/how-to-calculate-annualized-return
